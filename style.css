@@ -64,7 +64,7 @@ header {
   margin-top: 1rem;
 }
 
-.read-status, .delete-book {
+.read-status, .delete-book, .modal button {
   font-size: 1.4rem;
   margin-top: 1rem;
   border: none;
@@ -103,8 +103,8 @@ header {
 
 .popup {
   position: fixed;
-  top: 40%;
-  left: 45%;
+  top: 36%;
+  left: 43%;
   width: 300px;
   padding: 1.2rem;
   border-radius: 10px;
@@ -144,12 +144,6 @@ header {
 }
 
 .modal button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 30px;
-  background-color: #FF6B6B;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
+  background-color: rgb(150, 238, 150);;
 }
 
