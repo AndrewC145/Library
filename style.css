@@ -57,18 +57,16 @@ header {
   font-size: 1rem;
 }
 
-.read {
+.read, .delete {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 1rem;
 }
 
-.read-status {
+.read-status, .delete-book {
   font-size: 1.4rem;
   margin-top: 1rem;
-  background-color: rgb(150, 238, 150);
-  color: black;
   border: none;
   padding: 0.7rem;
   width: 100%;
@@ -77,8 +75,20 @@ header {
   margin-bottom: 1rem;
 }
 
-.read-status:hover {
-  background-color: rgb(0, 255, 0);
+.read-status {
+  background-color: rgb(150, 238, 150);
+  margin-bottom: 0;
 }
 
+.read-status:hover {
+  background-color: rgb(124, 235, 124);
+}
 
+.delete-book {
+  background-color: #c4c4c4;
+  margin-top: 0;
+}
+
+.delete-book:hover {
+  background-color: #a4a4a4;
+}
