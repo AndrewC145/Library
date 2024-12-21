@@ -104,7 +104,7 @@ header {
 .popup {
   display: none;
   position: fixed;
-  top: 36%;
+  top: 30%;
   left: 43%;
   width: 300px;
   padding: 1.2rem;
