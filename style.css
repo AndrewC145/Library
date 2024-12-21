@@ -92,3 +92,7 @@ header {
 .delete-book:hover {
   background-color: #a4a4a4;
 }
+
+.not-read {
+  background-color: rgb(238, 150, 150);
+}
