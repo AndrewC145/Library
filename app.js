@@ -1,7 +1,8 @@
 const addBookBtn = document.querySelector(".add-book");
 const readBtn = document.querySelector(".read-status");
 const deleteBtn = document.querySelector(".delete-book");
-const form = document.querySelector(".form");
+const popupForm = document.querySelector(".popup");
+const submitBtn = document.querySelector(".submit");
 
 
 const myLibrary = [];
@@ -13,7 +14,22 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBookToLibrary() {
+addBookBtn.addEventListener("click", () => {
+  if (popupForm.style.display === "none") {
+    popupForm.style.display = "block";
+  }
+  else {
+    popupForm.style.display = "none";
+  }
+});
 
-}
+submitBtn.addEventListener("click", () => {
+  const title = document.querySelector(".book-title").value;
+  const author = document.querySelector(".book-author").value;
+  const pages = document.querySelector(".num-pages").value;
+  const read = document.querySelector(".readBook").checked;
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+});
+
 
