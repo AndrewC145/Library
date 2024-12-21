@@ -34,3 +34,51 @@ header {
   gap: 1rem;
   padding: 2rem;
 }
+
+.book {
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.author {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.pages {
+  font-size: 1rem;
+}
+
+.read {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.read-status {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  background-color: rgb(150, 238, 150);
+  color: black;
+  border: none;
+  padding: 0.7rem;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.read-status:hover {
+  background-color: rgb(0, 255, 0);
+}
+
+
