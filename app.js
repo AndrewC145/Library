@@ -71,6 +71,7 @@ function displayBooks() {
     author.textContent = book.author;
     pages.textContent = `${book.pages} pages`;
     readStatus.textContent = book.read ? "Read" : "Not Read";
+    readStatus.classList.add(book.read ? "read" : "not-read");
     deleteBtn.textContent = "Delete";
 
     bookContainer.appendChild(bookCard);
@@ -80,5 +81,25 @@ function displayBooks() {
     bookCard.appendChild(readSection);
     readSection.appendChild(readStatus);
     bookCard.appendChild(deleteSection);
+    deleteSection.appendChild(deleteBtn);
+
+    readStatus.addEventListener("click", () => {
+      if (!book.read) {
+        book.read = true;
+        readStatus.textContent = "Read";
+        readStatus.classList.replace("not-read", "read");
+      }
+      else {
+        book.read = false;
+        readStatus.textContent = "Not Read";
+        readStatus.classList.replace("read", "not-read");
+      }
+    });
+
+    deleteBtn.addEventListener("click", () => {
+      const index = myLibrary.indexOf(book);
+      myLibrary.splice(index, 1);
+      displayBooks();
+    });
   });
 }
