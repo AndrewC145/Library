@@ -29,6 +29,7 @@ addBookBtn.addEventListener("click", () => {
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
   createBooks();
+  displayBooks();
 });
 
 function createBooks() {
@@ -41,4 +42,43 @@ function createBooks() {
 
   popupForm.style.display = "none";
   overlay.style.display = "none";
+}
+
+function displayBooks() {
+  const bookContainer = document.querySelector(".book-container");
+  bookContainer.textContent = "";
+
+  myLibrary.forEach(book => {
+    const bookCard = document.createElement("div");
+    const title = document.createElement("div");
+    const author = document.createElement("div");
+    const pages = document.createElement("div");
+    const readSection = document.createElement("div");
+    const readStatus = document.createElement("button");
+    const deleteSection = document.createElement("div");
+    const deleteBtn = document.createElement("button");
+
+    bookCard.classList.add("book");
+    title.classList.add("title");
+    author.classList.add("author");
+    pages.classList.add("pages");
+    readSection.classList.add("read");
+    readStatus.classList.add("read-status");
+    deleteSection.classList.add("delete");
+    deleteBtn.classList.add("delete-book");
+
+    title.textContent = book.title;
+    author.textContent = book.author;
+    pages.textContent = `${book.pages} pages`;
+    readStatus.textContent = book.read ? "Read" : "Not Read";
+    deleteBtn.textContent = "Delete";
+
+    bookContainer.appendChild(bookCard);
+    bookCard.appendChild(title);
+    bookCard.appendChild(author);
+    bookCard.appendChild(pages);
+    bookCard.appendChild(readSection);
+    readSection.appendChild(readStatus);
+    bookCard.appendChild(deleteSection);
+  });
 }
