@@ -6,8 +6,6 @@ const submitBtn = document.querySelector(".submit");
 const overlay = document.querySelector(".overlay");
 
 
-
-
 const myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -30,6 +28,10 @@ addBookBtn.addEventListener("click", () => {
 
 submitBtn.addEventListener("click", (event) => {
   event.preventDefault();
+  createBooks();
+});
+
+function createBooks() {
   const title = document.querySelector(".book-title").value;
   const author = document.querySelector(".book-author").value;
   const pages = document.querySelector(".num-pages").value;
@@ -39,5 +41,4 @@ submitBtn.addEventListener("click", (event) => {
 
   popupForm.style.display = "none";
   overlay.style.display = "none";
-});
-
+}
