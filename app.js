@@ -15,6 +15,18 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+const defaultBooks = [
+  new Book("The Hobbit", "J.R.R Tolkien", 295, true),
+  new Book("Fahrenheit 451", "Ray Bradbury", 158, false),
+  new Book("The Shining", "Stephen King", 447, false)
+];
+
+defaultBooks.forEach(book => {
+  myLibrary.push(book);
+});
+
+displayBooks();
+
 addBookBtn.addEventListener("click", () => {
   if (popupForm.style.display === "none") {
     popupForm.style.display = "block";
