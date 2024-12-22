@@ -56,11 +56,16 @@ function createBooks() {
   const author = document.querySelector(".book-author").value;
   const pages = document.querySelector(".num-pages").value;
   const read = document.querySelector("#readBook").checked;
-  const newBook = new Book(title, author, pages, read);
-  myLibrary.push(newBook);
 
-  popupForm.style.display = "none";
-  overlay.style.display = "none";
+  if (title === "" || author === "" || pages === "") {
+    alert("Please fill out all fields");
+  }
+  else {
+    const newBook = new Book(title, author, pages, read);
+    myLibrary.push(newBook);
+    popupForm.style.display = "none";
+    overlay.style.display = "none";
+  }
 }
 
 function displayBooks() {
