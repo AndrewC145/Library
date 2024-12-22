@@ -36,6 +36,13 @@ addBookBtn.addEventListener("click", () => {
     popupForm.style.display = "none";
     overlay.style.display = "none";
   }
+
+  document.body.addEventListener("click", (event) => {
+    if (event.target === overlay) {
+      popupForm.style.display = "none";
+      overlay.style.display = "none";
+    }
+  });
 });
 
 submitBtn.addEventListener("click", (event) => {
