@@ -45,7 +45,7 @@ function createBooks() {
 }
 
 function displayBooks() {
-  const bookContainer = document.querySelector(".book-container");
+  const bookContainer = document.querySelector(".books-container");
   bookContainer.textContent = "";
 
   myLibrary.forEach(book => {
