@@ -1,3 +1,4 @@
+// Starting DOM Elements
 const addBookBtn = document.querySelector('.add-book');
 const readBtn = document.querySelector('.read-status');
 const deleteBtn = document.querySelector('.delete-book');
@@ -5,8 +6,10 @@ const popupForm = document.querySelector('.popup');
 const submitBtn = document.querySelector('.submit');
 const overlay = document.querySelector('.overlay');
 
+// Array to hold Books
 const myLibrary = [];
 
+// Book Constructor to create new Book Objects
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -24,6 +27,7 @@ defaultBooks.forEach((book) => {
   myLibrary.push(book);
 });
 
+// Local Storage Functions
 function saveToLocalStorage() {
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
@@ -31,9 +35,9 @@ function saveToLocalStorage() {
 function loadFromLocalStorage() {
   const library = JSON.parse(localStorage.getItem('myLibrary'));
   if (library) {
-    myLibrary.length = 0;
+    myLibrary.length = 0; // Clears the existing array
     library.forEach((book) => {
-      myLibrary.push(book);
+      myLibrary.push(book); // Then repopulates it with the saved data
     });
   }
 }
@@ -49,7 +53,7 @@ addBookBtn.addEventListener('click', () => {
     popupForm.style.display = 'none';
     overlay.style.display = 'none';
   }
-
+  // If the user clicks outside the form, it will close
   document.body.addEventListener('click', (event) => {
     if (event.target === overlay) {
       popupForm.style.display = 'none';
@@ -58,6 +62,7 @@ addBookBtn.addEventListener('click', () => {
   });
 });
 
+// Submits the form and creates, displays, and saves the book
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault();
   createBooks();
@@ -72,6 +77,7 @@ function createBooks() {
   const read = document.querySelector('#readBook').checked;
 
   if (title === '' || author === '' || pages === '') {
+    // If any fields are empty, it will alert the user otherwise it will create the book
     alert('Please fill out all fields');
   } else {
     const newBook = new Book(title, author, pages, read);
@@ -81,6 +87,7 @@ function createBooks() {
   }
 }
 
+// Displays the books in the library
 function displayBooks() {
   const bookContainer = document.querySelector('.books-container');
   bookContainer.textContent = '';
@@ -120,12 +127,15 @@ function displayBooks() {
     bookCard.appendChild(deleteSection);
     deleteSection.appendChild(deleteBtn);
 
+    // If the user clicks the read status button, it will change the read status
     readStatus.addEventListener('click', () => {
       if (!book.read) {
+        // If the book is not read originally, clicking the button will change it to read
         book.read = true;
         readStatus.textContent = 'Read';
         readStatus.classList.replace('not-read', 'read');
       } else {
+        // If the book is read originally, clicking the button will change it to not read
         book.read = false;
         readStatus.textContent = 'Not Read';
         readStatus.classList.replace('read', 'not-read');
